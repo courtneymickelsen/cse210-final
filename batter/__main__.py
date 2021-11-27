@@ -12,9 +12,9 @@ from game.brick import Brick
 from game.ball import Ball
 from game.move_actors_action import MoveActorsAction
 from game.paddle import Paddle
+from game.control_actors_action import ControlActorsAction
 
 # TODO: Add imports similar to the following when you create these classes
-# from game.control_actors_action import ControlActorsAction
 # from game.handle_collisions_action import HandleCollisionsAction
 # from game.handle_off_screen_action import HandleOffScreenAction
 
@@ -50,11 +50,12 @@ def main():
     audio_service = AudioService()
     move_actors_action = MoveActorsAction()
     draw_actors_action = DrawActorsAction(output_service)
+    control_actors_action = ControlActorsAction()
 
     # TODO: Create additional actions here and add them to the script
 
-    script["input"] = []
-    script["update"] = []
+    script["input"] = [control_actors_action]
+    script["update"] = [move_actors_action]
     script["output"] = [draw_actors_action]
 
     # Start the game
