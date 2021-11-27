@@ -11,9 +11,9 @@ from game.audio_service import AudioService
 from game.brick import Brick
 from game.ball import Ball
 from game.move_actors_action import MoveActorsAction
+from game.paddle import Paddle
 
 # TODO: Add imports similar to the following when you create these classes
-# from game.paddle import Paddle
 # from game.control_actors_action import ControlActorsAction
 # from game.handle_collisions_action import HandleCollisionsAction
 # from game.handle_off_screen_action import HandleOffScreenAction
@@ -32,15 +32,14 @@ def main():
 
 
     cast["balls"] = []
-    # TODO: Create a ball here and add it to the list
-
     ball = Ball()
     ball.set_position(Point(400, 400))
     cast["balls"].append(ball)
 
     cast["paddle"] = []
     # TODO: Create a paddle here and add it to the list
-
+    paddle = Paddle()
+    cast["paddle"].append(paddle)
 
     # Create the script {key: tag, value: list}
     script = {}
@@ -55,10 +54,8 @@ def main():
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = []
-    script["update"] = [move_actors_action]
+    script["update"] = []
     script["output"] = [draw_actors_action]
-
-
 
     # Start the game
     output_service.open_window("Batter")
