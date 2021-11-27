@@ -7,4 +7,4 @@ class Paddle(Actor):
         self._height = constants.PADDLE_HEIGHT
         self._width = constants.PADDLE_WIDTH
         self._image = constants.IMAGE_PADDLE
-        self._position = Point(400, 590)
+        self._position = Point(370, 570)
