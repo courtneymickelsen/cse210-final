@@ -43,7 +43,6 @@ class OutputService:
 
         self._window.blit(image, (x, y))
 
-
     def clear_screen(self):
         self._clock.tick(30)
         self._window.fill(constants.BACKGROUND_COLOR);
