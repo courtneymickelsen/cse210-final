@@ -56,7 +56,7 @@ def main():
 
     script["input"] = []
     # control_actors_action
-    script["update"] = []
+    script["update"] = [move_actors_action]
     # move_actors_action
     script["output"] = [draw_actors_action]
 
