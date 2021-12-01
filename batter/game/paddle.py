@@ -4,6 +4,8 @@ from game.point import Point
 
 class Paddle(Actor):
     def __init__(self):
+        super().__init__()
+
         self._height = constants.PADDLE_HEIGHT
         self._width = constants.PADDLE_WIDTH
         self._image = constants.IMAGE_PADDLE
