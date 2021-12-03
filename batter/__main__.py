@@ -50,7 +50,6 @@ def main():
     draw_actors_action = DrawActorsAction(output_service)
     move_actors_action = MoveActorsAction()
     control_actors_action = ControlActorsAction()
-    # HELP: idk if i need this-
     handle_off_screen_action = HandleOffScreenAction()
 
     # TODO: Create additional actions here and add them to the script
@@ -58,7 +57,6 @@ def main():
     script["input"] = [control_actors_action]
     
     script["update"] = [handle_off_screen_action, move_actors_action]
-    # HELP: do i need handle_off_screen_action here ^?
     
     script["output"] = [draw_actors_action]
 
