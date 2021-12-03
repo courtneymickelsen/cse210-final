@@ -24,7 +24,7 @@ class HandleOffScreenAction(Action):
             new_dx = abs(dx)
             ball.set_velocity(Point(new_dx, dy))
 
-        elif x > constants.MAX_X:
+        elif x > (constants.MAX_X - constants.BALL_WIDTH):
             new_dx = -abs(dx)
             ball.set_velocity(Point(new_dx, dy))
 
