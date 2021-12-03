@@ -21,8 +21,8 @@ def main():
 
     # create the cast {key: tag, value: list}
     cast = {}
+
     cast["bricks"] = []
-  
     for x in range(constants.BRICK_SPACE, constants.MAX_X, constants.BRICK_WIDTH + constants.BRICK_SPACE):
         for y in range(constants.BRICK_SPACE, 160, constants.BRICK_HEIGHT + constants.BRICK_SPACE):
             brick = Brick()
@@ -32,11 +32,10 @@ def main():
 
     cast["ball"] = []
     ball = Ball()
-    ball.set_position(Point(400, 400))
+    ball.set_position(Point(400, 450))
     cast["ball"].append(ball)
 
     cast["paddle"] = []
-    # TODO: Create a paddle here and add it to the list
     paddle = Paddle()
     cast["paddle"].append(paddle)
 
@@ -53,12 +52,9 @@ def main():
     handle_off_screen_action = HandleOffScreenAction()
     handle_collisions_action = HandleCollisionsAction()
 
-    # TODO: Create additional actions here and add them to the script
 
     script["input"] = [control_actors_action]
-    
     script["update"] = [handle_off_screen_action, move_actors_action, handle_collisions_action]
-    
     script["output"] = [draw_actors_action]
 
     # Start the game
