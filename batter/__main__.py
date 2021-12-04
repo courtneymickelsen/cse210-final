@@ -15,6 +15,7 @@ from game.paddle import Paddle
 from game.control_actors_action import ControlActorsAction
 from game.handle_off_screen_action import HandleOffScreenAction
 from game.handle_collisions_action import HandleCollisionsAction
+from game.end_game import EndGame
 
 
 def main():
@@ -51,10 +52,10 @@ def main():
     control_actors_action = ControlActorsAction()
     handle_off_screen_action = HandleOffScreenAction()
     handle_collisions_action = HandleCollisionsAction()
-
+    end_game = EndGame()
 
     script["input"] = [control_actors_action]
-    script["update"] = [handle_off_screen_action, move_actors_action, handle_collisions_action]
+    script["update"] = [handle_off_screen_action, move_actors_action, handle_collisions_action, end_game]
     script["output"] = [draw_actors_action]
 
     # Start the game
