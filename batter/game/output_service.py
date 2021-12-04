@@ -77,8 +77,6 @@ class OutputService:
         pygame.draw.rect(self._window, color, pygame.Rect(center[0] - width / 2, center[1] - height / 2, width, height),
                         border_width, border_radius, border_top_left_radius, border_top_right_radius, border_bottom_left_radius,
                         border_bottom_right_radius)
-   
-
 
     def draw_text(self, x, y, text, is_dark_text):
         color = constants.COLOR_BLACK if is_dark_text else constants.COLOR_WHITE

@@ -16,6 +16,7 @@ from game.control_actors_action import ControlActorsAction
 from game.handle_off_screen_action import HandleOffScreenAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.end_game import EndGame
+from game.end_message import EndMessage
 
 
 def main():
@@ -33,13 +34,18 @@ def main():
 
     cast["ball"] = []
     ball = Ball()
-    ball.set_position(Point(400, 450))
+    ball.set_position(Point(random.randint(100, 700), random.randint(300, 600)))
     cast["ball"].append(ball)
 
     cast["paddle"] = []
     paddle = Paddle()
     cast["paddle"].append(paddle)
 
+    cast["end_message"] = []
+    end_message = EndMessage()
+    end_message.set_position(Point(10000, 400))
+    cast["end_message"].append(end_message)
+    
     # Create the script {key: tag, value: list}
     script = {}
 
@@ -55,7 +61,7 @@ def main():
     end_game = EndGame()
 
     script["input"] = [control_actors_action]
-    script["update"] = [handle_off_screen_action, move_actors_action, handle_collisions_action, end_game]
+    script["update"] = [handle_off_screen_action, move_actors_action, handle_collisions_action, end_game,]
     script["output"] = [draw_actors_action]
 
     # Start the game
