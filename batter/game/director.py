@@ -2,7 +2,7 @@ from time import sleep
 
 import pygame
 from game import constants
-
+     
 class Director:
     """A code template for a person who directs the game. The responsibility of 
     this class of objects is to control the sequence of play.
@@ -25,17 +25,13 @@ class Director:
         self._cast = cast
         self._script = script
         self._keep_playing = True
-        
+
     def start_game(self):
         """Starts the game loop to control the sequence of play."""
         while self._keep_playing:
             self._cue_action("input")
             self._cue_action("update")
             self._cue_action("output")
-
-            # if len(self._cast["balls"]) == 0:
-            #     # Game over
-            #     self._keep_playing = False
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
