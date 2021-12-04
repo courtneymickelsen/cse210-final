@@ -17,3 +17,9 @@ class EndGame(Action):
         
         if self._did_lose:
             Director()._keep_playing = False
+
+        if len(cast["bricks"]) == 0:
+                Director()._keep_playing = False
+
+    def display_message(self):
+        pass
