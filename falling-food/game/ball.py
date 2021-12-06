@@ -9,4 +9,4 @@ class Ball(Actor):
         self._image = constants.IMAGE_BALL
         self._width = constants.BALL_WIDTH
         self._height = constants.BALL_HEIGHT
-        self._velocity = Point(constants.BALL_DX, constants.BALL_DY)
+        self._velocity = Point(3, -3)
