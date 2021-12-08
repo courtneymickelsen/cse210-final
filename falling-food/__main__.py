@@ -8,38 +8,38 @@ from game.input_service import InputService
 from game.output_service import OutputService
 from game.physics_service import PhysicsService
 from game.audio_service import AudioService
-from game.brick import Brick
-from game.ball import Ball
+from game.order import Order
+from game.fruit import Fruit
 from game.move_actors_action import MoveActorsAction
-from game.paddle import Paddle
+from game.collector import Collector
 from game.control_actors_action import ControlActorsAction
 from game.handle_off_screen_action import HandleOffScreenAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.end_game import EndGame
 from game.end_message import EndMessage
-
+from game.basket import Basket
 
 def main():
 
     # create the cast {key: tag, value: list}
     cast = {}
 
-    cast["bricks"] = []
-    for x in range(constants.BRICK_SPACE, constants.MAX_X, constants.BRICK_WIDTH + constants.BRICK_SPACE):
-        for y in range(constants.BRICK_SPACE, 160, constants.BRICK_HEIGHT + constants.BRICK_SPACE):
-            brick = Brick()
-            brick.set_position(Point(x, y))
-            cast["bricks"].append(brick)
+    cast["fruit"] = []
+    for x in range(100, 100):
+        for y in range(100, 100):
+            fruit = Fruit()
+            fruit.set_position(Point(x, y))
+            cast["fruit"].append(fruit)
 
 
-    cast["ball"] = []
-    ball = Ball()
-    ball.set_position(Point(random.randint(100, 700), random.randint(300, 600)))
-    cast["ball"].append(ball)
+    cast["basket"] = []
+    basket = Basket()
+    basket.set_position(Point(random.randint(100, 700), random.randint(300, 600)))
+    cast["basket"].append(basket)
 
-    cast["paddle"] = []
-    paddle = Paddle()
-    cast["paddle"].append(paddle)
+    cast["collector"] = []
+    collector= Collector()
+    cast["collector"].append(collector)
 
     cast["end_message"] = []
     end_message = EndMessage()
