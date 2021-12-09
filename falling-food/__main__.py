@@ -8,12 +8,11 @@ from game.input_service import InputService
 from game.output_service import OutputService
 from game.physics_service import PhysicsService
 from game.audio_service import AudioService
-from game.order import Order
+from game.order_fruit import OrderFruit
 from game.fruit import Fruit
 from game.move_actors_action import MoveActorsAction
 from game.collector import Collector
 from game.control_actors_action import ControlActorsAction
-from game.handle_off_screen_action import HandleOffScreenAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.end_game import EndGame
 from game.end_message import EndMessage
@@ -25,16 +24,22 @@ def main():
     cast = {}
 
     cast["fruit"] = []
-    for x in range(100, 100):
-        for y in range(100, 100):
+    for x in range(100):
+        for y in range(100):
             fruit = Fruit()
-            fruit.set_position(Point(x, y))
+            fruit.set_position(Point(random.randint(30, 800), random.randint(-1000000, 0)))
             cast["fruit"].append(fruit)
 
+    cast["order_fruit"] = []
+    next_x = 100
+    for i in range(random.randint(5, 15)):
+        order_fruit = OrderFruit()
+        order_fruit.set_position(Point(10, next_x))
+        cast["order_fruit"].append(order_fruit)
+        next_x += 30
 
     cast["basket"] = []
     basket = Basket()
-    basket.set_position(Point(random.randint(100, 700), random.randint(300, 600)))
     cast["basket"].append(basket)
 
     cast["collector"] = []
@@ -56,12 +61,11 @@ def main():
     draw_actors_action = DrawActorsAction(output_service)
     move_actors_action = MoveActorsAction()
     control_actors_action = ControlActorsAction()
-    handle_off_screen_action = HandleOffScreenAction()
     handle_collisions_action = HandleCollisionsAction()
     end_game = EndGame()
 
     script["input"] = [control_actors_action]
-    script["update"] = [handle_off_screen_action, move_actors_action, handle_collisions_action, end_game,]
+    script["update"] = [ move_actors_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
     # Start the game
