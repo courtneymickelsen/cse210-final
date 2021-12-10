@@ -23,3 +23,18 @@ class ControlActorsAction(Action):
             x -= constants.COLLECTOR_SPEED
     
         collector.set_position(Point(x, y))
+
+    def carry_fruit(self, fruit):
+        fruit.set_velocity(Point(0, 0))
+
+        position = fruit.get_position()
+        x = position.get_x()
+        y = position.get_y()
+        
+        if x < (constants.MAX_X - constants.COLLECTOR_WIDTH) and InputService().is_right_pressed():
+            x += constants.COLLECTOR_SPEED
+
+        if x > 0 and InputService().is_left_pressed():
+            x -= constants.COLLECTOR_SPEED
+    
+        fruit.set_position(Point(x, y))
