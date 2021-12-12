@@ -1,6 +1,7 @@
 from game.fruit import Fruit
 from game.actor import Actor
 from game.point import Point
+from game.order import Order
 from game import constants
 
 class Basket(Actor):
@@ -22,14 +23,14 @@ class Basket(Actor):
     def add_item(self, item):
         self._items.append(item)
 
-    def _add_name(self, item):
-        name = Fruit.get_name(item)
+    def add_name(self, item):
+        name = Fruit().get_name(item)
         self._name_list.append(name)
 
     def get_name_list(self):
         self._name_list = []
 
         for item in self._items:
-            self._add_name(item)
+            self.add_name()
         
         return self._name_list

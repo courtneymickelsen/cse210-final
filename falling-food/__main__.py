@@ -1,6 +1,10 @@
 import random
 from game.check_order import CheckOrder
 from game import constants
+from game.apple import Apple
+from game .orange import Orange
+from game.order_apple import OrderApple
+from game.order_orange import OrderOrange
 from game.director import Director
 from game.actor import Actor
 from game.point import Point
@@ -28,19 +32,20 @@ def main():
     cast["fruit"] = []
     for x in range(100):
         for y in range(100):
-            fruit = Fruit()
-            fruit.set_position(Point(random.randint(50, 800), random.randint(-2000000, 0)))
+            fruit_types = [Fruit(), Apple(), Orange()]
+            fruit = random.choice(fruit_types)
+            fruit.set_position(Point(random.randint(60, 780), random.randint(-2000000, 0)))
             cast["fruit"].append(fruit)
 
     cast["order_fruit"] = []
-    next_x = 100
-    for i in range(random.randint(5, 15)):
-        order_fruit = OrderFruit()
-        order_fruit.set_position(Point(10, next_x))
-        Order().add_item(order_fruit)
+    order_fruit_types = [OrderOrange(), OrderApple()]
+    next_y = 100
+    for i in range(random.randint(1, 2)):
+        order_fruit = random.choice(order_fruit_types)
+        order_fruit.set_position(Point(10, next_y))
         cast["order_fruit"].append(order_fruit)
-        next_x += 30
-
+        next_y += 30
+    print(cast['order_fruit'])
     cast["basket"] = []
     basket = Basket()
     cast["basket"].append(basket)
@@ -49,10 +54,10 @@ def main():
     collector= Collector()
     cast["collector"].append(collector)
 
-    cast["end_message"] = []
-    end_message = EndMessage()
-    end_message.set_position(Point(10000, 400))
-    cast["end_message"].append(end_message)
+    # cast["end_message"] = []
+    # end_message = EndMessage()
+    # end_message.set_position(Point(10000, 400))
+    # cast["end_message"].append(end_message)
     
     # Create the script {key: tag, value: list}
     script = {}
@@ -73,7 +78,7 @@ def main():
     script["output"] = [draw_actors_action]
 
     # Start the game
-    output_service.open_window("Batter")
+    output_service.open_window("Falling Food")
     audio_service.start_audio()
     audio_service.play_sound(constants.SOUND_START)
     

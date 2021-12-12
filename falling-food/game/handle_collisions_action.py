@@ -1,4 +1,5 @@
 from game.basket import Basket
+from game.basket_fruit import BasketFruit
 from game.action import Action
 from game.order import Order
 from game.physics_service import PhysicsService
@@ -8,6 +9,10 @@ from game.fruit import Fruit
 from game.control_actors_action import ControlActorsAction
 from game import constants
 from game.input_service import InputService
+from game.apple import Apple
+from game.orange import Orange
+from game.basket_orange import BasketOrange
+from game.basket_apple import BasketApple
 import random
 
 class HandleCollisionsAction(Action):
@@ -30,7 +35,14 @@ class HandleCollisionsAction(Action):
 
         for fruit in cast["fruit"]:
             if PhysicsService().is_collision(fruit, basket):
-                fruit.set_velocity(Point(0, 0))
+                
+                if isinstance(fruit, Apple):
+                    bf = BasketApple()
+
+                if isinstance(fruit, Orange):
+                    bf = BasketOrange()
+                
+                bf = BasketFruit()
                 self.drop_fruit(fruit, basket)
                 AudioService().play_sound(constants.SOUND_BOUNCE)
 
@@ -42,6 +54,4 @@ class HandleCollisionsAction(Action):
 
         fruit.set_velocity(Point(0, 0))
 
-        fruit.set_position(Point(basket_x, basket_y))
-
-        Basket().add_item(fruit)
+        fruit.set_position(Point(-100, -100))

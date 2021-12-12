@@ -16,8 +16,8 @@ DEFAULT_TEXT_OFFSET = 4
 IMAGE_BASKET = os.path.join(os.getcwd(), "./falling-food/assets/brick-3.png")
 IMAGE_COLLECTOR = os.path.join(os.getcwd(), "./falling-food/assets/bat.png")
 IMAGE_FRUIT1 = os.path.join(os.getcwd(), "./falling-food/assets/ball.png")
-IMAGE_FRUIT2 = os.path.join(os.getcwd(), "./falling-food/assets/ball.png")
-IMAGE_FRUIT3 = os.path.join(os.getcwd(), "./falling-food/assets/ball.png")
+IMAGE_FRUIT2 = os.path.join(os.getcwd(), "./falling-food/assets/brick-1.png")
+IMAGE_FRUIT3 = os.path.join(os.getcwd(), "./falling-food/assets/brick-4.png")
 
 SOUND_START = os.path.join(os.getcwd(), "./falling-food/assets/start.wav")
 SOUND_BOUNCE = os.path.join(os.getcwd(), "./falling-food/assets/boing.wav")
