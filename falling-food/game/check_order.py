@@ -12,16 +12,17 @@ class CheckOrder(Action):
         order_names = Order().get_name_list()
         basket_names = Basket().get_name_list()
 
-        for i in basket_names:
-            for j in order_names:
+        for i in order_names:
+            for j in basket_names:
                 if i == j:
-                    basket_names.pop(i)
+                    # basket_names.pop(i)
                     order_names.pop(j)
 
-        if len(basket_names) == 0 and len(order_names) == 0:
+        # len(basket_names) == 0 and
+        if len(order_names) == 0:
             self.is_order_correct = True
         else:
             self.is_order_correct = False
 
-        if self.is_order_correct:
+        if self.is_order_correct == True:
             Director._keep_playing = False

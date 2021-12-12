@@ -30,6 +30,6 @@ class Basket(Actor):
         self._name_list = []
 
         for item in self._items:
-            self._add_name()
+            self._add_name(item)
         
         return self._name_list
