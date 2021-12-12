@@ -36,5 +36,5 @@ class ControlActorsAction(Action):
 
         if x > 0 and InputService().is_left_pressed():
             x -= constants.COLLECTOR_SPEED
-    
+
         fruit.set_position(Point(x, y))

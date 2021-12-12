@@ -1,4 +1,5 @@
 import random
+from game.check_order import CheckOrder
 from game import constants
 from game.director import Director
 from game.actor import Actor
@@ -17,6 +18,7 @@ from game.handle_collisions_action import HandleCollisionsAction
 from game.end_game import EndGame
 from game.end_message import EndMessage
 from game.basket import Basket
+from game.order import Order
 
 def main():
 
@@ -27,7 +29,7 @@ def main():
     for x in range(100):
         for y in range(100):
             fruit = Fruit()
-            fruit.set_position(Point(random.randint(30, 800), random.randint(-1000000, 0)))
+            fruit.set_position(Point(random.randint(50, 800), random.randint(-2000000, 0)))
             cast["fruit"].append(fruit)
 
     cast["order_fruit"] = []
@@ -35,6 +37,7 @@ def main():
     for i in range(random.randint(5, 15)):
         order_fruit = OrderFruit()
         order_fruit.set_position(Point(10, next_x))
+        Order().add_item(order_fruit)
         cast["order_fruit"].append(order_fruit)
         next_x += 30
 
@@ -63,9 +66,10 @@ def main():
     control_actors_action = ControlActorsAction()
     handle_collisions_action = HandleCollisionsAction()
     end_game = EndGame()
+    check_order = CheckOrder()
 
     script["input"] = [control_actors_action]
-    script["update"] = [ move_actors_action, handle_collisions_action]
+    script["update"] = [move_actors_action, handle_collisions_action, check_order]
     script["output"] = [draw_actors_action]
 
     # Start the game

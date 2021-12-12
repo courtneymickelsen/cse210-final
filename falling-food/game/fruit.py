@@ -11,3 +11,16 @@ class Fruit(Actor):
         self._width = constants.FRUIT_WIDTH
         self._height = constants.FRUIT_HEIGHT
         self._velocity = Point(0, 6)
+        self._name = ''
+
+    def get_name(self, item):
+        # if item == Apple():
+        #     self._name = 'apple' 
+        # elif item == Orange():
+        #     self._name = 'orange'
+        # elif item == Pear():
+        #     self._name = 'pear'
+        if item == Fruit():
+            self._name == 'fruit'
+
+        return self._name
