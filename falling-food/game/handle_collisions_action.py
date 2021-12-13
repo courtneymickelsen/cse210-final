@@ -35,7 +35,6 @@ class HandleCollisionsAction(Action):
         for fruit in cast["fruit"]:
             if PhysicsService().is_collision(collector, fruit):
                 ControlActorsAction.carry_fruit(collector, fruit)
-                AudioService().play_sound(constants.SOUND_BOUNCE)
 
         for fruit in cast["fruit"]:
             if PhysicsService().is_collision(fruit, basket):

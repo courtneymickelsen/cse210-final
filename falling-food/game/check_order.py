@@ -29,14 +29,16 @@ class CheckOrder(Action):
         self.check_lose(cast)
     
     def check_lose(self, cast):
-        length = len(BasketFruit.counter)
-        # print(length)
-        for i in range(length):
-            if BasketFruit.counter[i] != OrderFruit.counter[i]:
-                end_message = cast["end_message"][0]
-                end_message.set_text('Wrong Order! Try Again.')
-                end_message.set_position(Point(310, 300))
-                EndGame().execute(cast)
+        basket_length = len(BasketFruit.counter)
+        order_length = len(OrderFruit.counter)
+        
+        for i in range(basket_length):
+            if basket_length <= order_length:
+                if BasketFruit.counter[i] != OrderFruit.counter[i]:
+                    end_message = cast["end_message"][0]
+                    end_message.set_text('Wrong Order! Try Again.')
+                    end_message.set_position(Point(310, 300))
+                    # EndGame().execute(cast)
 
     def check_win(self, cast):
         if BasketFruit.counter == OrderFruit.counter:
