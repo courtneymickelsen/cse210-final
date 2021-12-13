@@ -10,9 +10,13 @@ from game.control_actors_action import ControlActorsAction
 from game import constants
 from game.input_service import InputService
 from game.apple import Apple
-from game.orange import Orange
-from game.basket_orange import BasketOrange
+from game.mango import Mango
+from game.pear import Pear
+from game.watermelon import Watermelon
+from game.basket_mango import BasketMango
 from game.basket_apple import BasketApple
+from game.basket_pear import BasketPear
+from game.basket_watermelon import BasketWatermelon
 import random
 
 class HandleCollisionsAction(Action):
@@ -39,8 +43,14 @@ class HandleCollisionsAction(Action):
                 if isinstance(fruit, Apple):
                     bf = BasketApple()
 
-                if isinstance(fruit, Orange):
-                    bf = BasketOrange()
+                if isinstance(fruit, Mango):
+                    bf = BasketMango()
+                
+                if isinstance(fruit, Pear):
+                    bf = BasketPear()
+
+                if isinstance(fruit, Watermelon):
+                    bf = BasketWatermelon()
                 
                 bf = BasketFruit()
                 self.drop_fruit(fruit, basket)

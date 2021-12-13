@@ -10,7 +10,7 @@ class Basket(Actor):
 
         self._image = constants.IMAGE_BASKET
         self._velocity = Point(0, 0)
-        self._position = Point(10, 570)
+        self._position = Point(10, 540)
         self._width = constants.BASKET_WIDTH
         self._height = constants.BASKET_HEIGHT
         self._items = []

@@ -9,5 +9,4 @@ class OrderFruit(Fruit):
 
         self._velocity = Point(0, 0)
 
-        
         print(self.counter)

@@ -19,11 +19,11 @@ class CheckOrder(Action):
                     basket_names.pop(i)
                     order_names.pop(i)
 
-        print(f'basket fruit: {BasketFruit.counter}, order fruit: {OrderFruit.counter}')
+        print(f'basket fruit: {BasketFruit.counter}\norder fruit: {OrderFruit.counter}')
         
         if BasketFruit.counter == OrderFruit.counter:
             self.is_order_correct = True
 
         if self.is_order_correct:
             print("order correct")
-            # Director()._keep_playing = False
+            Director()._keep_playing = False

@@ -9,4 +9,4 @@ class Collector(Actor):
         self._height = constants.COLLECTOR_HEIGHT
         self._width = constants.COLLECTOR_WIDTH
         self._image = constants.IMAGE_COLLECTOR
-        self._position = Point(370, 570)
+        self._position = Point(370, 540)

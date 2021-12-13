@@ -2,9 +2,13 @@ import random
 from game.check_order import CheckOrder
 from game import constants
 from game.apple import Apple
-from game .orange import Orange
+from game.mango import Mango
+from game.pear import Pear
+from game.watermelon import Watermelon
 from game.order_apple import OrderApple
-from game.order_orange import OrderOrange
+from game.order_mango import OrderMango
+from game.order_pear import OrderPear
+from game.order_watermelon import OrderWatermelon
 from game.director import Director
 from game.actor import Actor
 from game.point import Point
@@ -23,6 +27,7 @@ from game.end_game import EndGame
 from game.end_message import EndMessage
 from game.basket import Basket
 from game.order import Order
+from game. add_to_order import AddToOrder
 
 def main():
 
@@ -32,20 +37,21 @@ def main():
     cast["fruit"] = []
     for x in range(100):
         for y in range(100):
-            fruit_types = [Fruit(), Apple(), Orange()]
+            fruit_types = [Apple(), Mango(), Pear(), Watermelon()]
             fruit = random.choice(fruit_types)
-            fruit.set_position(Point(random.randint(60, 780), random.randint(-2000000, 0)))
+            fruit.set_position(Point(random.randint(70, 780), random.randint(-2000000, 0)))
             cast["fruit"].append(fruit)
 
     cast["order_fruit"] = []
-    order_fruit_types = [OrderOrange(), OrderApple()]
-    next_y = 100
-    for i in range(random.randint(1, 2)):
+    order_fruit_types = [OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon()]
+    next_y = 25
+    for i in range(8):
         order_fruit = random.choice(order_fruit_types)
-        order_fruit.set_position(Point(10, next_y))
         cast["order_fruit"].append(order_fruit)
-        next_y += 30
-    print(cast['order_fruit'])
+        order_fruit.set_position(Point(25, next_y))
+        next_y += 65
+    AddToOrder().execute(cast)
+
     cast["basket"] = []
     basket = Basket()
     cast["basket"].append(basket)
