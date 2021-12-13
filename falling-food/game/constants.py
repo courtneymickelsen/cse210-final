@@ -25,9 +25,6 @@ SOUND_START = os.path.join(os.getcwd(), "./falling-food/assets/start.wav")
 SOUND_BOUNCE = os.path.join(os.getcwd(), "./falling-food/assets/boing.wav")
 SOUND_OVER = os.path.join(os.getcwd(), "./falling-food/assets/over.wav")
 
-# BALL_X = MAX_X / 2
-# BALL_Y = MAX_Y - 125
-
 FRUIT_DX = 8
 FRUIT_DY = 0
 

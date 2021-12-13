@@ -11,7 +11,6 @@ class ControlActorsAction(Action):
     def execute(self, cast):
         collector = cast["collector"][0]
 
-        # get position
         position = collector.get_position()
         x = position.get_x()
         y = position.get_y()

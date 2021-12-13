@@ -13,15 +13,3 @@ class Fruit(Actor):
         self._height = constants.FRUIT_HEIGHT
         self._velocity = Point(0, random.randint(4, 7))
         self._name = 'fruit'
-
-    def get_name(self, item):
-        # if item is Apple():
-        #     self._name = 'apple' 
-        # elif item == Mango():
-        #     self._name = 'mango'
-        # elif item == Pear():
-        #     self._name = 'pear'
-        if item == Fruit():
-            self._name = 'fruit'
-
-        return self._name

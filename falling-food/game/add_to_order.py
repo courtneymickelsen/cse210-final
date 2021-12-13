@@ -10,7 +10,6 @@ class AddToOrder(Action):
         super().__init__()
 
     def execute(self, cast):
-        # something could be wrong here
         order_fruit = cast["order_fruit"]
 
         for item in order_fruit:

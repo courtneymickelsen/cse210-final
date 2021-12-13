@@ -8,5 +8,3 @@ class OrderFruit(Fruit):
         super().__init__()
 
         self._velocity = Point(0, 0)
-
-        print(self.counter)

@@ -79,8 +79,6 @@ def main():
     end_game = EndGame()
     check_order = CheckOrder()
 
-
-
     script["input"] = [control_actors_action]
     script["update"] = [move_actors_action, handle_collisions_action, check_order]
     script["output"] = [draw_actors_action]
