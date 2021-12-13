@@ -28,6 +28,7 @@ from game.end_message import EndMessage
 from game.basket import Basket
 from game.order import Order
 from game. add_to_order import AddToOrder
+from game.pick_fruit_type import PickFruitType
 
 def main():
 
@@ -43,13 +44,12 @@ def main():
             cast["fruit"].append(fruit)
 
     cast["order_fruit"] = []
-    order_fruit_types = [OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon(), OrderApple(), OrderMango(), OrderPear(), OrderWatermelon()]
     next_y = 25
-    for i in range(8):
-        order_fruit = random.choice(order_fruit_types)
+    for i in range(random.randint(5, 12)):
+        order_fruit = PickFruitType().execute()
         cast["order_fruit"].append(order_fruit)
         order_fruit.set_position(Point(25, next_y))
-        next_y += 65
+        next_y += 40
     AddToOrder().execute(cast)
 
     cast["basket"] = []

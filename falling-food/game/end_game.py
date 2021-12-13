@@ -27,5 +27,6 @@ class EndGame(Action):
             paddle = cast["paddle"][0]
             paddle.set_width(1000)
             paddle.set_position(Point(0, constants.PADDLE_Y))
-            #I know this isn't the best way to end the game, but I can't find a better way
+            
+            # I know this isn't the best way to end the game, but I can't find a better way
             Director._keep_playing = False
