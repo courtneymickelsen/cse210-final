@@ -126,7 +126,7 @@ class OutputService:
             self.draw_image(x, y, image)
         elif actor.has_text():
             text = actor.get_text()
-            self.draw_text(x, y, text, False)
+            self.draw_text(x, y, text, True)
         elif width > 0 and height > 0:
             self.draw_box(x, y, width, height)
         

@@ -9,24 +9,15 @@ class EndGame(Action):
         self._end_game = False
 
     def execute(self, cast):
-        end_message = cast["end_message"][0]
-        ball = cast["ball"][0]
-        position = ball.get_position()
-        y = position.get_y()
+        for fruit in cast["fruit"]:
+            position = fruit.get_position()
+            fruit_y = position.get_y()
+            velocity = fruit.get_velocity()
+            fruit_dy = velocity.get_y()
+            fruit_dx = velocity.get_x()
 
-        if y > constants.MAX_Y + 10:
-            end_message.set_text('You Lose! Try again.')
-            end_message.set_position(Point(350, 300))
-            self._end_game = True
+            if fruit_dy > 0 and fruit_y in range(570, 600):
+                fruit.set_velocity(Point(fruit_dx, (fruit_dy * -1)))
 
-        elif len(cast["bricks"]) == 0:
-            end_message.set_position(Point(400, 300))
-            self._end_game = True
-
-        if self._end_game:
-            paddle = cast["paddle"][0]
-            paddle.set_width(1000)
-            paddle.set_position(Point(0, constants.PADDLE_Y))
-            
-            # I know this isn't the best way to end the game, but I can't find a better way
-            Director._keep_playing = False
+            if fruit_dy < 0 and fruit_y in range(-25, 0):
+                fruit.set_velocity(Point(fruit_dx, (fruit_dy * -1)))

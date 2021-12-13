@@ -60,10 +60,10 @@ def main():
     collector= Collector()
     cast["collector"].append(collector)
 
-    # cast["end_message"] = []
-    # end_message = EndMessage()
-    # end_message.set_position(Point(10000, 400))
-    # cast["end_message"].append(end_message)
+    cast["end_message"] = []
+    end_message = EndMessage()
+    end_message.set_position(Point(10000, 400))
+    cast["end_message"].append(end_message)
     
     # Create the script {key: tag, value: list}
     script = {}
@@ -78,6 +78,8 @@ def main():
     handle_collisions_action = HandleCollisionsAction()
     end_game = EndGame()
     check_order = CheckOrder()
+
+
 
     script["input"] = [control_actors_action]
     script["update"] = [move_actors_action, handle_collisions_action, check_order]

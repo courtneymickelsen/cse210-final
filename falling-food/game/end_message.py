@@ -8,6 +8,6 @@ class EndMessage(Actor):
         self._text = ""
         self._width = 400
         self._height = 100
-        self._text = "You win!"
-        # self._velocity = Point(0, 0)
+        self._text = "You Win!"
+        
         
