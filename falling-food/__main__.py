@@ -45,7 +45,7 @@ def main():
 
     cast["order_fruit"] = []
     next_y = 25
-    for i in range(random.randint(5, 12)):
+    for i in range(random.randint(6, 10)):
         order_fruit = PickFruitType().execute()
         cast["order_fruit"].append(order_fruit)
         order_fruit.set_position(Point(25, next_y))
